@@ -1,30 +1,4 @@
 window.onload = function () {
-    // var tabItem = document.getElementsByClassName("tab-item");
-    // var item = tabItem[0].getElementsByTagName("div");
-
-    // var tabContent = document.getElementsByClassName("tab-content");
-    // var content = tabContent[0].getElementsByTagName("div");
-
-
-    // //给三个选项添加点击事件
-    // for(let i = 0; i < item.length; i++){
-
-    //     //记录当前选项下标
-    //     item[i].index = i;
-    //     item[i].onclick = function(){
-    //         // alert(this);
-
-    //         //清除其他的样式
-    //         for(let j = 0; j < item.length; j++){
-    //             item[j].className = '';
-    //             content[j].style.display = "none";
-    //         }
-    //         this.className = "active";
-    //         content[item[i].index].style.display = "block";
-    //     }
-    // }
-
-
     //修改时间的js函数
     // 显示时间的JS
     var t = null;
@@ -92,13 +66,6 @@ window.onload = function () {
     var myChart = echarts.init(dom1);
     // 2.指定配置项和数据
     option = {
-        // title: {
-        //     text: '瓦斯浓度数据预测',
-        //     textStyle: {
-        //         color: "#fff",
-        //     }
-        // },
-
         tooltip: {
             trigger: 'axis'
         },
@@ -148,10 +115,10 @@ window.onload = function () {
                 name: 'LSTM',
                 type: 'line',
                 data: predictData[0].data[0]
-
             }
         ]
     };
+    
     // 3.把配置项给实例对象
     myChart.setOption(option);
 
@@ -168,8 +135,8 @@ window.onload = function () {
         var cur_index = $(this).index(); //获取当前鼠标点击事件的索引号
         var obj = predictData[cur_index]; //根据索引获取数据
         //不同类别的数据   数据的维度不同，所以需要根据条件进行修改
-
         var accuracy_box = document.getElementById("accuracy");  //获取显示精度信息的盒子
+        
         if (cur_index == 0) {  //瓦斯浓度数据预测有9列
             var arr = new Array(9);
             var lenged_arr = ["LSTM", "BPSO-LSTM", "ARIMA", "DAWCPSO-LSTM", "APSO-LSTM", "y-true", "RNN", "GRU", "SVR"];
@@ -177,7 +144,7 @@ window.onload = function () {
                     <th>LSTM</th> \
                     <th>BPSO-LSTM</th> \
                     <th>ARIMA</th> \
-                    <th>DAWCPSO-LSTM</th> \
+                    <th style=\"border:1px solid #0094ff;\">DAWCPSO-LSTM</th> \
                     <th>APSO-LSTM</th> \
                     <th>RNN</th> \
                     <th>GRU</th> \
@@ -186,26 +153,26 @@ window.onload = function () {
                         <td>70.09826%</td> \
                         <td>95.33822%</td> \
                         <td>-5.32899%</td> \
-                        <td>97.55843%</td> \
+                        <td style=\"border:1px solid #0094ff;\">97.55843%</td> \
                         <td>87.62885%</td> \
                         <td>72.30768%</td> \
                         <td>72.16832%</td> \
                         <td>89.99964%</td> \
                     </tr> \
-                </table>"
+                </table>";
         } else if (cur_index == 1) { //水质数据预测 COD
             var arr = new Array(4);
             var lenged_arr = ["APSO-LSTM", "BPSO-LSTM", "LSTM", "y-true"];
             accuracy_box.innerHTML = "<div class=\"title_box\">平均绝对误差（MAE）量化指标</div><table width=\"100%\" cellpadding=\"2\" cellspacing=\"1\" style=\"word-wrap:break-word; table-layout:fixed;\"> \
                         <th>LSTM</th> \
                         <th>BPSO-LSTM</th> \
-                        <th>APSO-LSTM</th>\
+                        <th style=\"border:1px solid #0094ff;\">APSO-LSTM</th>\
                         <tr>\
                             <td>8.52985</td>\
                             <td>10.12691</td>\
-                            <td>4.92830</td>\
+                            <td style=\"border:1px solid #0094ff;\">4.92830</td>\
                         </tr>\
-                    </table>"
+                    </table>";
         } else if (cur_index == 2) { //AQI数据的预测
             var arr = new Array(5);
             var lenged_arr = ["R-LSTM", "SVR-LSTM", "ARIMA-LSTM", "LSTM", "y-true"];
@@ -213,18 +180,16 @@ window.onload = function () {
                         <th>LSTM</th>\
                         <th>SVR-LSTM</th>\
                         <th>ARIMA-LSTM</th>\
-                        <th>R-LSTM</th>\
+                        <th style=\"border:1px solid #0094ff;\">R-LSTM</th>\
                         <tr>\
                             <td>93.883%</td>\
                             <td>60.186%</td>\
                             <td>92.878</td>\
-                            <td>94.518%</td>\
+                            <td style=\"border:1px solid #0094ff;\">94.518%</td>\
                         </tr>\
-                    </table>"
+                    </table>";
         }
-        //清空数组
-        // option.series.splice(0,option.series.length);
-        // console.log(option.series.length);
+
 
         var i = 0;
         // arr = [];
