@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据可视化面板</title>
+    <link rel="stylesheet" href="css/index.css">
+    <!-- 图标展示 -->
+    <link rel="icon" href="images/favicon.ico">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/echarts.min.js"></script>
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+
+    <!-- 标题 -->
+    <header>
+        <h1>
+            <a href="javascript:;" style="background-color: #4286F3;">瓦斯浓度</a>
+            <a href="javascript:;" style="background-color: #FAC230;">水质COD数据</a>
+            <a href="javascript:;" style="background-color: #EB4537;">AQI数据</a>
+        </h1>
+        <div class="showtime"></div>
+    </header>
+
+    <!-- 数据可视化的主体部分 -->
+    <section class="mainbox">
+        <!-- 折线图所在位置 -->
+        <div class="chart-box" id="box1"></div>
+
+
+        <!-- 精确度的数值显示区域 -->
+        <div class="acc-box" id="accuracy">
+        </div>
+    </section>
+</body>
+
+</html>
