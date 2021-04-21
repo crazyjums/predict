@@ -72,7 +72,7 @@ window.onload = function () {
         legend: {
             data: ["y-true", "DAWCPSO-LSTM", "LSTM"],
             textStyle: {
-                color: "#fff",
+                color: "#4286F3",
             },
             inactiveColor: "rgba(255,255,255,0.3)",
 
@@ -85,7 +85,11 @@ window.onload = function () {
         },
         toolbox: {
             feature: {
-                saveAsImage: { show: true }
+                saveAsImage: {
+                    show: true,
+                    excludeComponents: ['toolbox'],
+                    pixelRatio: 2
+                }
             }
         },
         darkMode: true, //深色主题
@@ -118,7 +122,7 @@ window.onload = function () {
             }
         ]
     };
-    
+
     // 3.把配置项给实例对象
     myChart.setOption(option);
 
@@ -136,7 +140,7 @@ window.onload = function () {
         var obj = predictData[cur_index]; //根据索引获取数据
         //不同类别的数据   数据的维度不同，所以需要根据条件进行修改
         var accuracy_box = document.getElementById("accuracy");  //获取显示精度信息的盒子
-        
+
         if (cur_index == 0) {  //瓦斯浓度数据预测有9列
             var arr = new Array(9);
             var lenged_arr = ["LSTM", "BPSO-LSTM", "ARIMA", "DAWCPSO-LSTM", "APSO-LSTM", "y-true", "RNN", "GRU", "SVR"];
