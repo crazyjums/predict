@@ -4,8 +4,8 @@
 
 # 2 Page
 
-![s](https://jums.club/predict/images/one.png)
+![s](https://crazyjums.github.io/predict/images/one.png)
 
-![s](https://jums.club/predict/images/two.png)
+![s](https://crazyjums.github.io/predict/images/two.png)
 
-![s](https://jums.club/predict/images/three.png)
+![s](https://crazyjums.github.io/predict/images/three.png)
